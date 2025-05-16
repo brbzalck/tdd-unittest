@@ -16,16 +16,19 @@ import unittest
 from baconcomovos import bacon_com_ovos
 
 
+# testando o método bacon com ovos
 class TestBaconComOvos(unittest.TestCase):
     def test_bacon_com_ovos_deve_levantar_assertion_error_se_nao_receber_int(self):
+        # nesse teste assertRaises em caso de erros
         with self.assertRaises(AssertionError):
             bacon_com_ovos('')
-
+    
     def test_bacon_com_ovos_deve_retornar_bacon_com_ovos_se_entrada_for_multiplo_de_3_e_5(self):
         entradas = (15, 30, 45, 60)
         saida = 'Bacon com ovos'
 
         for entrada in entradas:
+            # subTest para fazer o teste em TODA iteração, onde a entrada na função bacon_com_ovos deve ser igual a saida da def
             with self.subTest(entrada=entrada, saida=saida):
                 self.assertEqual(bacon_com_ovos(entrada), saida)
 
